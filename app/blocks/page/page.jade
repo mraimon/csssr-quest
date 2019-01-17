@@ -34,6 +34,6 @@ mixin page()
 					+list(data.future.list)(listType='radio' listStyle='inline' name='futurePlans')
 
 				+box._date
-				+note([[data.date.title, data.date.value]])(labels=true)
+					+note([[data.date.title, data.date.value]])(labels=true)
 
 	+scripts(['app.min.js'])
