@@ -1,0 +1,7 @@
+include ../image/image
+
+mixin header()
+	+b('header').header&attributes(attributes)
+		+image('logo.png')(alt='CSSSR').logo
+		+image('stamp.png')(alt='Секретно. Заполнено собственноручно.').stamp
+		+image('page-title.png')(alt='ДЕЛО').title

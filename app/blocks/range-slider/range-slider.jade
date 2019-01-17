@@ -1,0 +1,10 @@
+mixin range-slider(min, max, step, value, data)
+	-data.sort(function (a, b) { return a.value - b.value })
+	+b.range-slider
+		+e('input').input(type='range' min=min max=max step=step value=value)
+		+e.labels
+			each item in data
+				- var {value, label} = item
+				if(value >= min && value <= max && value%step === 0)
+					+e(class='label', data-label-for=value)
+						span=label

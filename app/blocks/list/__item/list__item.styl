@@ -1,0 +1,59 @@
+.list
+	&__item
+		display block
+		break-inside avoid-column
+		padding 5px 0
+
+	&__label
+		position relative
+		display grid
+		grid-template-columns min-content 1fr
+		grid-column-gap 9px
+		grid-row-gap 10px
+		word-break break-word
+		font-family PTSans
+		font-size $size-md
+		font-weight bold
+		color $color-dark
+
+	&__input
+		position absolute
+		width 0
+		height 0
+		opacity 0
+
+	&__input:checked ~ &__checkmark:after
+		display flex
+
+	&__checkmark
+		display flex
+		cursor pointer
+
+		&:after
+			display none
+			content ''
+
+		&_checkbox
+			width 18px
+			height 24px
+			background url('../images/checkbox-bg.png') no-repeat center center
+
+			&:after
+				position relative
+				left 4px
+				bottom 7px
+				width 19px
+				height 25px
+				background url('../images/checkbox-mark.png') no-repeat
+
+		&_radio
+			width 28px
+			height 28px
+			align-items center
+			justify-content center
+			background url('../images/radio-bg.png') no-repeat center center
+
+			&:after
+				width 12px
+				height 12px
+				background url('../images/radio-mark.png') no-repeat

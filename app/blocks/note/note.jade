@@ -1,0 +1,9 @@
+include __line/note__line
+
+mixin note(items)
+	+b&attributes(attributes).note
+		each item in items
+			- var label = attributes.labels ? item[0] : ''
+			- var text = attributes.labels ? item[1] : item
+
+			+note__line(label,text,attributes.lineType,attributes.lineWidth)

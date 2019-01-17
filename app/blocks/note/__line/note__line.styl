@@ -1,0 +1,65 @@
+// begin shame
+:root
+	--editable-line-height 58px
+
+@media screen and (max-width $tabletMedium)
+	:root
+		--editable-line-height 38px
+// end shame
+
+.note
+	&__line
+		display flex
+
+		@media screen and (max-width $tabletMedium)
+			flex-direction column
+
+	&__line + &__line
+		margin-top 0.5em
+
+	&__label
+		display flex
+		align-items flex-end
+		padding-y(3px)
+		font-family PTSans
+		font-weight bold
+		font-size $size-lg
+		color $color-primary
+
+
+	&__label + &__text
+		margin-left 1rem
+
+		@media screen and (max-width $tabletMedium)
+			margin-left 0
+
+	&__text
+		font-family 'Courier New'
+		font-size $size-xxl
+		color $color-muted
+		word-wrap break-word
+
+		&_static
+			padding-y(0.45em)
+			padding-x(0.5em)
+			line-background()
+			background-position bottom left
+			background-repeat repeat-x
+
+			@media screen and (max-width $tabletMedium)
+				padding-left 0
+				padding-right 0
+
+		&_editable
+			padding-top 0.1666666667em
+			max-width 100%
+			line-height var(--editable-line-height)
+			word-wrap break-word
+			cursor text
+			line-background(var(--editable-line-height))
+
+		&_fill
+			flex-grow 1
+
+	&_in_about
+		margin-top 20px

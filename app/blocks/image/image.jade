@@ -1,0 +1,5 @@
+mixin image(imageName, isBlock)
+	if isBlock
+		img(src='/assets/images/#{imageName}')&attributes(attributes)
+	else
+		+e('img')(src='/assets/images/#{imageName}')&attributes(attributes)

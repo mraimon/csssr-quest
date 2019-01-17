@@ -1,0 +1,5 @@
+mixin list__item(label, type, isChecked, name)
+	+e('label').label
+		+e('input').input(type=type checked=!!isChecked name=name?name:false)
+		+e('span')(class="checkmark_#{type}")
+		+e('span').text=label

@@ -1,0 +1,5 @@
+mixin box(title)
+    +b&attributes(attributes).box
+        if(title)
+            +e.title=title
+        block

@@ -1,0 +1,7 @@
+include __item/list__item
+
+mixin list(items)
+	+b('ul')(class='list_type_#{attributes.listStyle}')
+		each item in items
+			+e('li').item
+				+list__item(item[0], attributes.listType, item[1], attributes.name)

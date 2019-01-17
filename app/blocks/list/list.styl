@@ -1,0 +1,21 @@
+.list
+
+	&__text
+		display flex
+		align-items center
+
+	&_type_column
+		margin-top 1.5em
+		column-count 3
+
+		@media screen and (max-width $tabletMedium)
+			column-count 2
+
+	  	@media screen and (max-width $tabletSmall)
+			column-count 1
+
+	&_type_inline
+		margin-top 0.5em
+		display grid
+		grid-template-columns: repeat(auto-fill, minmax(150px, max-content));
+		grid-column-gap 20px

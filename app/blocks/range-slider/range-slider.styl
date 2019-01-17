@@ -1,0 +1,107 @@
+$thumb-w = 16px
+$thumb-h = 14px
+$ruler-w = 2px
+$track-h = 35px
+
+track()
+	position relative
+	box-sizing border-box
+	border none
+	width 100%
+	height $track-h
+	background none
+	transition all 2s
+
+thumb()
+	display block
+	width $thumb-w
+	height 100%
+	box-sizing border-box
+	border none
+	background url('../images/thumb.png') center top no-repeat
+	background-size $thumb-w $thumb-h
+	transition all 2s
+
+label-stick($height)
+	background linear-gradient($color-primary $height, transparent $height) no-repeat
+	background-size 2px
+
+.range-slider
+	display flex
+	flex-direction column
+	align-items center
+	position relative
+	margin-top 1em
+
+	&__input
+		position absolute
+		width 'calc(100% + %s - %s)' % ($thumb-w $ruler-w)
+		height $track-h
+		cursor pointer
+		background transparent
+		z-index 500
+
+		&, &::-webkit-slider-thumb
+			-webkit-appearance none
+		&::-webkit-slider-runnable-track
+			track()
+		&::-moz-range-track
+			track()
+		&::-ms-track
+			track()
+		&::-webkit-slider-thumb
+			thumb()
+		&::-moz-range-thumb
+			thumb()
+			border-radius 0
+		&::-ms-thumb
+			margin-top 0
+			thumb()
+		&::-ms-tooltip
+			display none
+
+
+	&__labels
+		display flex
+		position relative
+		top $thumb-h
+		width 100%
+		line-background()
+		background-position center top
+		background-repeat repeat-x
+		padding-top 4px
+		z-index 100
+
+
+	&__label
+		flex-shrink 0
+		display flex
+		flex-direction column
+		font-family PTSans
+		font-size 0.8125rem
+		font-weight bold
+		word-break break-word
+		-webkit-hyphens auto
+		-moz-hyphens auto
+		-ms-hyphens auto
+		padding-top 38px
+
+		&:not(:first-child):not(:last-child)
+			padding-right 15px
+			label-stick(12px)
+
+		&:first-child,
+		&:last-child
+			label-stick(18px)
+
+		&:last-child
+			background-position right
+			align-items flex-end
+
+		@media screen and (max-width $tabletMedium)
+			max-height 250px
+
+			& > span
+				writing-mode vertical-rl
+				transform: rotate(180deg);
+				text-align: right;

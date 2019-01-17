@@ -1,0 +1,39 @@
+include ../wrapper/wrapper
+include ../header/header
+include ../list/list
+include ../note/note
+include ../box/box
+include ../range-slider/range-slider
+include ../scripts/scripts
+
+mixin page()
+	-var data = getData('page-data')
+	+b('body').page&attributes(attributes)
+		+wrapper
+			+header
+
+			+b('main')
+				+box._resume
+					+note(data.resume)(labels=true lineWidth='fill')
+
+				+box(data.skills.title)._checkboxes
+					+e.text=data.skills.description
+					+list(data.skills.list)(listType='checkbox' listStyle='column')
+
+				+box(data.js_skills.title)._range-slider
+					- var {min, max, step, value, labels} = data.js_skills
+
+					+range-slider(min, max, step, value, labels)
+
+				+box(data.about.title)._about
+					+e.text=data.about.description
+					+note([data.about.text])(lineType='editable' lineWidth='fill')._in_about
+
+				+box(data.future.title)._future
+					+e.text=data.future.description
+					+list(data.future.list)(listType='radio' listStyle='inline' name='futurePlans')
+
+				+box._date
+				+note([[data.date.title, data.date.value]])(labels=true)
+
+	+scripts(['app.min.js'])

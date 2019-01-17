@@ -1,0 +1,10 @@
+mixin note__line(label, text, lineType, lineWidth)
+	+e.line
+		if(!!label)
+			+e.label= label
+
+		- var lineTypeStyle = lineType ? `_${lineType}` : '_static'
+		- var lineWidthStyle = lineWidth ? `_${lineWidth}` : ''
+		- var isEditable = lineType==='editable'
+
+		+e.text(class=`${lineTypeStyle} ${lineWidthStyle}` contenteditable=`${isEditable}`)=text

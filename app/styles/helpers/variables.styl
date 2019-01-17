@@ -1,0 +1,29 @@
+// === COLORS ===
+
+$color-primary = #2f1b15
+$color-secondary = #1f5f97
+$color-light = #3d3d3d
+$color-dark = #000000
+$color-muted = #231f20
+
+// === RESPONSIVE ===
+
+$tabletLarge = 1000px
+$tabletMedium = 650px
+$tabletSmall = 350px
+
+// === FONT SIZES ===
+
+$size-xxl = 1.875em
+$size-xl = 1.5em
+$size-lg = 1.402em
+$size-md = 1.313em
+$size-bc = 0.938rem
+$size-sm = 0.813em
+
+:root
+	--base-size 16px //round(($size-xxl * $base-size) * 1.9333333333) px
+
+@media screen and (max-width $tabletMedium)
+	:root
+		--base-size 10px
