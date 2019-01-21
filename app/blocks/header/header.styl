@@ -11,23 +11,20 @@
 		grid-column 1 / 2
 		max-width 30vw
 
-		&__image
-			max-width 30vw
+	$stamp-y = -14px
+	$stamp-x = 65px
 
 	&__stamp
 		justify-self end
-		position relative
-		top -14px
-		right -65px
+		transform translate($stamp-x, $stamp-y)
 		max-width 47vw
 
 		@media screen and (max-width: $tabletLarge)
-			right 0
+			transform translate(0, $stamp-y)
 
 	&__title
-		position relative
-		top -14px
 		grid-column 2 / 3
+		transform translateY($stamp-y)
 		max-width 100%
 
 		@media screen and (max-width: $tabletMedium)

@@ -2,6 +2,7 @@ $thumb-w = 16px
 $thumb-h = 14px
 $ruler-w = 2px
 $track-h = 35px
+$label-font-size = 0.8125rem
 
 track()
 	position relative
@@ -23,8 +24,8 @@ thumb()
 	transition all 2s
 
 label-stick($height)
-	background linear-gradient($color-primary $height, transparent $height) no-repeat
-	background-size 2px
+	background linear-gradient($color-primary $height, transparent $height) no-repeat // W3C
+	background-size 2px 100%
 
 .range-slider
 	display flex
@@ -64,12 +65,11 @@ label-stick($height)
 	&__labels
 		display flex
 		position relative
-		top $thumb-h
 		width 100%
 		line-background()
-		background-position center top
+		background-position center $thumb-h
 		background-repeat repeat-x
-		padding-top 4px
+		padding-top $thumb-h + 4px
 		z-index 100
 
 
@@ -78,7 +78,7 @@ label-stick($height)
 		display flex
 		flex-direction column
 		font-family PTSans
-		font-size 0.8125rem
+		font-size $label-font-size
 		font-weight bold
 		word-break break-word
 		-webkit-hyphens auto
@@ -102,6 +102,10 @@ label-stick($height)
 			max-height 250px
 
 			& > span
+				position relative
 				writing-mode vertical-rl
 				transform: rotate(180deg);
 				text-align: right;
+
+			&:not(:last-child) > span
+				left -10px

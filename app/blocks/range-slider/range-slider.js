@@ -19,6 +19,6 @@ $.fn.rangeSlider = function () {
 		if (labelFor === max) {
 			widthValue = $(this).prev().outerWidth(true);
 		}
-		$(this).css('flex-basis', (widthValue * 100) / rangeW + '%');
+		$(this).css('width', (widthValue * 100) / rangeW + '%');
 	});
 };
