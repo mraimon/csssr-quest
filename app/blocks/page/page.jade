@@ -17,7 +17,8 @@ mixin page()
 					+note(data.resume)(labels=true lineWidth='fill')
 
 				+box(data.skills.title)._checkboxes
-					+e.text=data.skills.description
+					+e.text
+						p=data.skills.description
 					+list(data.skills.list)(listType='checkbox' listStyle='column')
 
 				+box(data.js_skills.title)._range-slider
@@ -26,11 +27,13 @@ mixin page()
 					+range-slider(min, max, step, value, labels)
 
 				+box(data.about.title)._about
-					+e.text=data.about.description
+					+e.text
+						p=data.about.description
 					+note([data.about.text])(lineType='editable' lineWidth='fill')._in_about
 
 				+box(data.future.title)._future
-					+e.text=data.future.description
+					+e.text
+						p=data.future.description
 					+list(data.future.list)(listType='radio' listStyle='inline' name='futurePlans')
 
 				+box._date

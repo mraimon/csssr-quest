@@ -1,5 +1,6 @@
 mixin box(title)
-    +b&attributes(attributes).box
-        if(title)
-            +e.title=title
-        block
+	+b&attributes(attributes).box
+		if(title)
+			+e.title
+				h1= title
+		block
